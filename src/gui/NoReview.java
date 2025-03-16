@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NoReview extends JFrame {
-    private JLabel label;
+    private final JLabel label;
 
     public NoReview(){
         this.setVisible(true);
