@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NoRoom extends JFrame {
-    private JLabel label;
+    private final JLabel label;
 
     public NoRoom(){
         this.setVisible(true);
