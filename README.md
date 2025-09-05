@@ -1,6 +1,9 @@
 # 🏨 Room / Property Management System
 
-This project implements a **room/property management system** with user management capabilities (providers and guests).  
+📚 University project for the course **Object Oriented Programming**, graded **above 9/10**.  
+
+This project implements a **room/property management system** with user management capabilities (providers and guests)
+
 Guests can search for properties, leave reviews, and view their reviews, while providers can manage their properties.  
 
 The program includes a **graphical user interface (GUI)** for easy usage and interactivity.
@@ -64,3 +67,4 @@ The program includes a **graphical user interface (GUI)** for easy usage and int
 - **File Management**: Serialization is used for saving and loading data (e.g., `.bin` files)  
 
 ---
+
