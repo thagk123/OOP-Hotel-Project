@@ -4,15 +4,9 @@ import api.Room;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.GridLayout;
-import java.util.HashMap;
+import java.util.Map;
 
 public class ShowReviews extends JFrame{
-
-    private Room room;
-    private HashMap<String,String> allreviews;
-    private HashMap<String,Integer> allstars;
-    private HashMap<String,String> alldates;
 
     public ShowReviews(Room room){
         this.setVisible(true);
@@ -22,27 +16,26 @@ public class ShowReviews extends JFrame{
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
-        this.room=room;
-        this.allreviews=room.getReviews();
-        this.allstars=room.getStars();
-        this.alldates=room.getDate();
+        Map<String,String> allreviews=room.getReviews();
+        Map<String,Integer> allstars=room.getStars();
+        Map<String,String> alldates=room.getDate();
 
         GridLayout grid=new GridLayout(allreviews.keySet().size()+2,0);
         this.setLayout(grid);
 
-        continueFrame(find_MO());
+        float meanAverage = findMeanAverage(allstars);
+        continueFrame(meanAverage, alldates, allreviews, allstars);
     }
 
-    public float find_MO(){
+    private float findMeanAverage(Map<String,Integer> allstars){
         int stars=0;
         for (Integer star:allstars.values()) {
             stars=stars+star;
         }
-        float mo=stars/(float) allstars.keySet().size();
-        return mo;
+        return stars/(float) allstars.keySet().size();
     }
 
-    public void continueFrame(float mo){
+    private void continueFrame(float mo, Map<String,String> alldates, Map<String,String> allreviews, Map<String,Integer> allstars){
         FlowLayout layout=new FlowLayout();
         layout.setAlignment(FlowLayout.LEADING);
         JPanel panel1=new JPanel(layout);
